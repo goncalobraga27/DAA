@@ -17,7 +17,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import cross_val_score
 
 # Leitura do dataset dataset.csv 
-df = pd.read_csv('../datasets/dataset.csv')
+df = pd.read_csv('../../datasets/parte1/dataset.csv')
 
 # Remoção das colunas 'Unnamed: 0' e 'id', que conforme se encontra descrito no Kaggle não pertence aos dados do dataset
 for col in df.columns:
@@ -85,18 +85,23 @@ print(str(accuracy*100)+"%")
 
 
 # Cálculo da precisão do modelo de aprendizagem
-precision = precision_score(y_test, predict, pos_label='neutral or dissatisfied') # Isto aqui pode ser assim, ou só com satisfied
+precision_Neutral_Dissatisfied = precision_score(y_test, predict, pos_label='neutral or dissatisfied') # Isto aqui pode ser assim, ou só com satisfied
+precision_Satisfied = precision_score(y_test, predict, pos_label='satisfied')
 
-print("A precisão deste modelo é de :")
-print(precision)
+print("A precisão deste modelo para o valor neutral or dissatisfied da coluna satisfaction é de : ")
+print(precision_Neutral_Dissatisfied)
+print("A precisão deste modelo para o valor satisfied da coluna satisfaction é de : ")
+print(precision_Satisfied)
 
 
 # Cálculo da recall do modelo de aprendizagem
-recall = recall_score(y_test, predict, pos_label='neutral or dissatisfied') # Isto aqui pode ser assim, ou só com satisfied
+recall_Neutral_Dissatisfied = recall_score(y_test, predict, pos_label='neutral or dissatisfied') # Isto aqui pode ser assim, ou só com satisfied
+recall_Satisfied = recall_score(y_test, predict, pos_label='satisfied') 
 
-print("A recall deste modelo é de :")
-print(recall)
-
+print("A recall deste modelo para o valor neutral or dissatisfied da coluna satisfaction é de :")
+print(recall_Neutral_Dissatisfied)
+print("A recall deste modelo para o valor satisfied da coluna satisfaction é de :")
+print(recall_Satisfied)
 
 # Cálculo da f1_macro do modelo de aprendizagem 
 f1_macro = f1_score(y_test,predict,average="macro")

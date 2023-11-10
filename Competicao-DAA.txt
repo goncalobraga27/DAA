@@ -278,3 +278,335 @@ Random Forest Trees , com n_estimators = 100 + GridSearchCV ( refit = True , ver
 })
 SCORE:
 0.85650
+
+NÚMERO DO TESTE : 10
+DATASETS UTILIZADOS : Energia - 2021 , Meteorologia - 2021 , Energia - 2022 , Metereologia - 2022, Energia - 2023 , Metereologia -2023
+PREPARAÇÃO DOS DADOS : 
+- Junção dos datasets de 2021, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Junção dos datasets de 2022, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Concatenação dos datasets relativos a 2021 e 2022
+Para realizarmos a concatenação dos datasets de 2021 e 2022, estes datasets têm de possuir a mesma estrutura 
+- Criação de um dataset com os dados globais, dos anos 2021 e 2022
+- Junção dos datasets de 2023, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso'
+- Criação de um dataset com os dados globais, dos anos 2023
+PROCESSAMENTO DOS DADOS: Para o dataset de teste e treino 
+- Visualização dos valores diferentes que se encontram na coluna 'city_name'
+- Como os valores são todos iguais, não acrescentam informação relevante, logo a coluna 'city_name' é eliminada 
+- Como os valores não apresentam contexto ao problema, a coluna 'dt' foi eliminada 
+- Criação de uma coluna 'weather_description_encode' pois a coluna 'weather_description' é codificada com base no label encoding 
+- Eliminação da coluna 'rain_1h' que continha missing values e uma baixa correlação com o restantes dados 
+- Eliminação da coluna 'clouds_all' que possuia uma baixa correlação com os restantes dados 
+- Eliminação da coluna 'wind_speed' que possuia uma baixa correlação com os restantes dados
+EXPLORAÇÃO DOS DADOS: 
+- Visualização da matriz de correlação entre as features existentes no dataset
+MODELO UTILIZADO:
+Decision Tree Classifier + GridSearchCV ( refit = True , verbose = 2, param_grid = {
+    'criterion': ['gini', 'entropy','ratio'],
+    'max_depth': [5,7,9,11,13,15],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4],
+})
+SCORE:
+0.84763
+
+
+NÚMERO DO TESTE : 11
+DATASETS UTILIZADOS : Energia - 2021 , Meteorologia - 2021 , Energia - 2022 , Metereologia - 2022, Energia - 2023 , Metereologia -2023
+PREPARAÇÃO DOS DADOS : 
+- Junção dos datasets de 2021, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Junção dos datasets de 2022, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Concatenação dos datasets relativos a 2021 e 2022
+Para realizarmos a concatenação dos datasets de 2021 e 2022, estes datasets têm de possuir a mesma estrutura 
+- Criação de um dataset com os dados globais, dos anos 2021 e 2022
+- Junção dos datasets de 2023, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso'
+- Criação de um dataset com os dados globais, dos anos 2023
+PROCESSAMENTO DOS DADOS: Para o dataset de teste e treino 
+- Visualização dos valores diferentes que se encontram na coluna 'city_name'
+- Como os valores são todos iguais, não acrescentam informação relevante, logo a coluna 'city_name' é eliminada 
+- Como os valores não apresentam contexto ao problema, a coluna 'dt' foi eliminada 
+- Criação de uma coluna 'weather_description_encode' pois a coluna 'weather_description' é codificada com base no label encoding 
+- Eliminação da coluna 'rain_1h' que continha missing values e uma baixa correlação com o restantes dados 
+- Eliminação da coluna 'clouds_all' que possuia uma baixa correlação com os restantes dados 
+- Eliminação da coluna 'wind_speed' que possuia uma baixa correlação com os restantes dados
+- Eliminação da coluna 'Hora' que possuia uma baixa correlação com os restantes dados
+- Para o tratamento de missing values, fazemos a mediana para :'temp','temp_min','temp_max','pressure' ; e media para : 'feels_like','humidity'
+EXPLORAÇÃO DOS DADOS: 
+- Visualização da matriz de correlação entre as features existentes no dataset
+- Visualização da tendência central para cada uma das features
+MODELO UTILIZADO:
+Decision Trees Classifiers  + GridSearchCV ( refit = True , verbose = 2, param_grid = {
+    'criterion': ['gini', 'entropy','ratio'],
+    'max_depth': [5,7,9,11,13,15],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4],
+})
+SCORE:
+0.85355
+
+
+NÚMERO DO TESTE : 12
+DATASETS UTILIZADOS : Energia - 2021 , Meteorologia - 2021 , Energia - 2022 , Metereologia - 2022, Energia - 2023 , Metereologia -2023
+PREPARAÇÃO DOS DADOS : 
+- Junção dos datasets de 2021, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Junção dos datasets de 2022, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Concatenação dos datasets relativos a 2021 e 2022
+Para realizarmos a concatenação dos datasets de 2021 e 2022, estes datasets têm de possuir a mesma estrutura 
+- Criação de um dataset com os dados globais, dos anos 2021 e 2022
+- Junção dos datasets de 2023, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso'
+- Criação de um dataset com os dados globais, dos anos 2023
+PROCESSAMENTO DOS DADOS: Para o dataset de teste e treino 
+- Visualização dos valores diferentes que se encontram na coluna 'city_name'
+- Como os valores são todos iguais, não acrescentam informação relevante, logo a coluna 'city_name' é eliminada 
+- Como os valores não apresentam contexto ao problema, a coluna 'dt' foi eliminada 
+- Criação de uma coluna 'weather_description_encode' pois a coluna 'weather_description' é codificada com base no label encoding 
+- Eliminação da coluna 'rain_1h' que continha missing values e uma baixa correlação com o restantes dados 
+- Eliminação da coluna 'clouds_all' que possuia uma baixa correlação com os restantes dados 
+- Eliminação da coluna 'wind_speed' que possuia uma baixa correlação com os restantes dados
+- Eliminação da coluna 'Hora' que possuia uma baixa correlação com os restantes dados
+- Para o tratamento de missing values, fazemos a mediana para :'temp','temp_min','temp_max','pressure' ; e media para : 'feels_like','humidity'
+EXPLORAÇÃO DOS DADOS: 
+- Visualização da matriz de correlação entre as features existentes no dataset
+- Visualização da tendência central para cada uma das features
+MODELO UTILIZADO:
+Random Tree Forest + GridSearchCV ( refit = True , verbose = 2, param_grid = {
+    'criterion': ['gini', 'entropy','ratio'],
+    'max_depth': [5,7,9,11,13,15],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4],
+})
+SCORE:
+0.84319
+
+
+NÚMERO DO TESTE : 13
+DATASETS UTILIZADOS : Energia - 2021 , Meteorologia - 2021 , Energia - 2022 , Metereologia - 2022, Energia - 2023 , Metereologia -2023
+PREPARAÇÃO DOS DADOS : 
+- Junção dos datasets de 2021, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Junção dos datasets de 2022, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Concatenação dos datasets relativos a 2021 e 2022
+Para realizarmos a concatenação dos datasets de 2021 e 2022, estes datasets têm de possuir a mesma estrutura 
+- Criação de um dataset com os dados globais, dos anos 2021 e 2022
+- Junção dos datasets de 2023, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso'
+- Criação de um dataset com os dados globais, dos anos 2023
+PROCESSAMENTO DOS DADOS: Para o dataset de teste e treino 
+- Visualização dos valores diferentes que se encontram na coluna 'city_name'
+- Como os valores são todos iguais, não acrescentam informação relevante, logo a coluna 'city_name' é eliminada 
+- Como os valores não apresentam contexto ao problema, a coluna 'dt' foi eliminada 
+- Criação de uma coluna 'weather_description_encode' pois a coluna 'weather_description' é codificada com base no label encoding 
+- Eliminação da coluna 'Hora' que possuia uma baixa correlação com os restantes dados
+- Para o tratamento de missing values, fazemos a mediana para :'temp','temp_min','temp_max','pressure',rain_1h','clouds_all','wind_speed' ; e media para : 'feels_like','humidity'
+EXPLORAÇÃO DOS DADOS: 
+- Visualização da matriz de correlação entre as features existentes no dataset
+- Visualização da tendência central para cada uma das features
+MODELO UTILIZADO:
+Random Tree Forest , com n_estimators = 100 
+SCORE:
+0.84615
+
+
+NÚMERO DO TESTE : 14
+DATASETS UTILIZADOS : Energia - 2021 , Meteorologia - 2021 , Energia - 2022 , Metereologia - 2022, Energia - 2023 , Metereologia -2023
+PREPARAÇÃO DOS DADOS : 
+- Junção dos datasets de 2021, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Junção dos datasets de 2022, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Concatenação dos datasets relativos a 2021 e 2022
+Para realizarmos a concatenação dos datasets de 2021 e 2022, estes datasets têm de possuir a mesma estrutura 
+- Criação de um dataset com os dados globais, dos anos 2021 e 2022
+- Junção dos datasets de 2023, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso'
+- Criação de um dataset com os dados globais, dos anos 2023
+PROCESSAMENTO DOS DADOS: Para o dataset de teste e treino 
+- Visualização dos valores diferentes que se encontram na coluna 'city_name'
+- Como os valores são todos iguais, não acrescentam informação relevante, logo a coluna 'city_name' é eliminada 
+- Como os valores não apresentam contexto ao problema, a coluna 'dt' foi eliminada 
+- Criação de uma coluna 'weather_description_encode' pois a coluna 'weather_description' é codificada com base no label encoding 
+- Eliminação da coluna 'Hora' que possuia uma baixa correlação com os restantes dados
+- Para o tratamento de missing values, fazemos a mediana para :'temp','temp_min','temp_max','pressure',rain_1h','clouds_all','wind_speed' ; e media para : 'feels_like','humidity'
+EXPLORAÇÃO DOS DADOS: 
+- Visualização da matriz de correlação entre as features existentes no dataset
+- Visualização da tendência central para cada uma das features
+MODELO UTILIZADO:
+Decision Trees Classifiers  + GridSearchCV ( refit = True , verbose = 2,param_grid = {
+    'criterion': ['gini', 'entropy','ratio'],
+    'max_depth': [5,7,9,11,13,15,20],
+    'min_samples_split': [2, 5,7,10],
+    'min_samples_leaf': [1, 2, 4,6],
+})
+SCORE:
+0.85355
+
+
+NÚMERO DO TESTE : 15
+DATASETS UTILIZADOS : Energia - 2021 , Meteorologia - 2021 , Energia - 2022 , Metereologia - 2022, Energia - 2023 , Metereologia -2023
+PREPARAÇÃO DOS DADOS : 
+- Junção dos datasets de 2021, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Junção dos datasets de 2022, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Concatenação dos datasets relativos a 2021 e 2022
+Para realizarmos a concatenação dos datasets de 2021 e 2022, estes datasets têm de possuir a mesma estrutura 
+- Criação de um dataset com os dados globais, dos anos 2021 e 2022
+- Junção dos datasets de 2023, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso'
+- Criação de um dataset com os dados globais, dos anos 2023
+PROCESSAMENTO DOS DADOS: Para o dataset de teste e treino 
+- Visualização dos valores diferentes que se encontram na coluna 'city_name'
+- Como os valores são todos iguais, não acrescentam informação relevante, logo a coluna 'city_name' é eliminada 
+- Como os valores não apresentam contexto ao problema, a coluna 'dt' foi eliminada 
+- Criação de uma coluna 'weather_description_encode' pois a coluna 'weather_description' é codificada com base no label encoding 
+- Eliminação da coluna 'Hora' que possuia uma baixa correlação com os restantes dados
+- Eliminação da coluna 'pressure' que possuia uma baixa correlação com os restantes dados
+- Para o tratamento de missing values, fazemos a mediana para :'temp','temp_min','temp_max',rain_1h','clouds_all','wind_speed' ; e media para : 'feels_like','humidity'
+EXPLORAÇÃO DOS DADOS: 
+- Visualização da matriz de correlação entre as features existentes no dataset
+- Visualização da tendência central para cada uma das features
+MODELO UTILIZADO:
+Decision Trees Classifiers  + GridSearchCV ( refit = True , verbose = 2,param_grid = {
+    'criterion': ['gini', 'entropy','ratio'],
+    'max_depth': [5,7,9,11,13,15,20],
+    'min_samples_split': [2, 5,7,10],
+    'min_samples_leaf': [1, 2, 4,6],
+})
+SCORE:
+0.85355
+
+
+NÚMERO DO TESTE : 16
+DATASETS UTILIZADOS : Energia - 2021 , Meteorologia - 2021 , Energia - 2022 , Metereologia - 2022, Energia - 2023 , Metereologia -2023
+PREPARAÇÃO DOS DADOS : 
+- Junção dos datasets de 2021, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Junção dos datasets de 2022, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso' 
+- Concatenação dos datasets relativos a 2021 e 2022
+Para realizarmos a concatenação dos datasets de 2021 e 2022, estes datasets têm de possuir a mesma estrutura 
+- Criação de um dataset com os dados globais, dos anos 2021 e 2022
+- Junção dos datasets de 2023, por Data e Hora 
+Para juntar-mos os datasets, foi necessário alterar a coluna 'dt_iso' para apenas Data(YYYY-MM-DD) e Hora(HH)
+Mudar o tipo da coluna 'Hora' de string para inteiro
+Eliminação da coluna 'dt_iso'
+- Criação de um dataset com os dados globais, dos anos 2023
+PROCESSAMENTO DOS DADOS: Para o dataset de teste e treino 
+- Visualização dos valores diferentes que se encontram na coluna 'city_name'
+- Como os valores são todos iguais, não acrescentam informação relevante, logo a coluna 'city_name' é eliminada 
+- Como os valores não apresentam contexto ao problema, a coluna 'dt' foi eliminada 
+- Criação de uma coluna 'weather_description_encode' pois a coluna 'weather_description' é codificada com base no label encoding 
+- Eliminação da coluna 'Hora' que possuia uma baixa correlação com os restantes dados
+- Eliminação da coluna 'pressure' que possuia uma baixa correlação com os restantes dados
+- Para o tratamento de missing values, fazemos a mediana para :'temp','temp_min','temp_max',rain_1h','clouds_all','wind_speed' ; e media para : 'feels_like','humidity'
+EXPLORAÇÃO DOS DADOS: 
+- Visualização da matriz de correlação entre as features existentes no dataset
+- Visualização da tendência central para cada uma das features
+MODELO UTILIZADO:
+Random Tree Forest, com n_estimators = 100  + GridSearchCV ( refit = True , verbose = 2,param_grid = {
+    'criterion': ['gini', 'entropy','ratio'],
+    'max_depth': [5,7,9,11,13,15,20],
+    'min_samples_split': [2, 5,7,10],
+    'min_samples_leaf': [1, 2, 4,6],
+})
+SCORE:
+0.84467
+
+
+NÚMERO DO TESTE : 20 (MELHOR DECISION TREE)
+PROCESSAMENTO DOS DADOS: Para o dataset de teste e treino 
+- Drop : city_name, date, day, hour, month, year, dt, feels_like, sea_level, grnd_level, rain_1h
+- Missing Values : média para temp, temp_max, temp_min, pressure, humidity, wind_speed, clouds_all
+- Label Encoder para weather_description
+
+Modelo : Decision Tree Learner
+GridSearchCV + verbose=2 + refit=True e 
+param_grid = {
+    'criterion': ['gini', 'entropy', 'ratio'],
+    'max_depth' : list(range(1, 21)),
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4]
+}
+Score : 0.8565
+
+NÚMERO DO TESTE : 21 
+PROCESSAMENTO DOS DADOS: Para o dataset de teste e treino 
+- Drop : city_name, date, day, hour, month, year, dt, feels_like, sea_level, grnd_level, rain_1h
+- Missing Values : média para temp, temp_max, temp_min, pressure, humidity, wind_speed, clouds_all
+- Label Encoder para weather_description
+
+Modelo : Logistic Regression
+GridSearchCV + verbose=2 + refit=True e 
+param_grid = {
+    'solver': ['newton-cg', 'lbfgs', 'liblinear', 'sag', 'saga'],
+    'penalty' : ['none', 'elasticnet', 'l1', 'l2'],
+    'C':[0.001, 0.01, 0.1, 1, 10, 100, 1000]
+}
+
+Score : 0.82692
+
+NÚMERO DO TESTE : 22 
+PROCESSAMENTO DOS DADOS: Para o dataset de teste e treino 
+- Drop : city_name, date, day, hour, month, year, dt, feels_like, sea_level, grnd_level, rain_1h
+- Missing Values : média para temp, temp_max, temp_min, pressure, humidity, wind_speed, clouds_all
+- Label Encoder para weather_description
+
+Modelo : Support Vector Machine
+GridSearchCV + verbose=2 + refit=True e 
+param_grid = {
+    'C': [0.01, 0.1, 1, 10, 100, 1000],
+    'gamma': [1, 0.1, 0.01, 0.001, 0.0001],
+    'kernel': ['rbf', 'linear', 'sigmoid']
+}
+
+
+Score : 0.821
